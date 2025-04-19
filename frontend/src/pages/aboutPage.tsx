@@ -1,14 +1,40 @@
-import { Box, Container, Grid, Typography, Paper, Button } from "@mui/material"
+import { Box, Container, Typography, Paper, Button, Stack } from "@mui/material"
 import PageHeader from "../components/ui/pageHeader"
 
 const AboutPage = () => {
+  const values = [
+    {
+      title: "Quality",
+      description: "We never compromise on the quality of our products and services.",
+    },
+    {
+      title: "Innovation",
+      description: "We continuously strive to improve and innovate our product offerings.",
+    },
+    {
+      title: "Customer Satisfaction",
+      description: "Your satisfaction is our top priority, and we go the extra mile to ensure it.",
+    },
+  ]
+
   return (
     <Box component="main" sx={{ py: 6 }}>
       <Container maxWidth="lg">
-        <PageHeader title="About RollMaster" description="Delivering premium rolling shutter solutions since 2005." />
+        <PageHeader
+          title="About RollMaster"
+          description="Delivering premium rolling shutter solutions since 2005."
+        />
 
-        <Grid container spacing={6} sx={{ mt: 4 }}>
-          <Grid item xs={12} md={6}>
+        {/* Section: Story + Image */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: 6,
+            mt: 4,
+          }}
+        >
+          <Box flex={1}>
             <Typography variant="h4" gutterBottom>
               Our Story
             </Typography>
@@ -28,8 +54,9 @@ const AboutPage = () => {
             <Button variant="contained" sx={{ mt: 2 }}>
               Meet Our Team
             </Button>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </Box>
+
+          <Box flex={1}>
             <Box
               component="img"
               src="/images/about-factory.jpg"
@@ -41,51 +68,43 @@ const AboutPage = () => {
                 borderRadius: 2,
               }}
             />
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
+        {/* Section: Our Values */}
         <Box sx={{ mt: 8 }}>
           <Typography variant="h4" align="center" gutterBottom>
             Our Values
           </Typography>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
-            {[
-              {
-                title: "Quality",
-                description: "We never compromise on the quality of our products and services.",
-              },
-              {
-                title: "Innovation",
-                description: "We continuously strive to improve and innovate our product offerings.",
-              },
-              {
-                title: "Customer Satisfaction",
-                description: "Your satisfaction is our top priority, and we go the extra mile to ensure it.",
-              },
-            ].map((value, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Paper
-                  elevation={1}
-                  sx={{
-                    p: 4,
-                    height: "100%",
-                    transition: "all 0.3s",
-                    "&:hover": {
-                      transform: "translateY(-5px)",
-                      boxShadow: 3,
-                    },
-                  }}
-                >
-                  <Typography variant="h5" gutterBottom>
-                    {value.title}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    {value.description}
-                  </Typography>
-                </Paper>
-              </Grid>
+
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            sx={{ mt: 2 }}
+          >
+            {values.map((value, index) => (
+              <Paper
+                key={index}
+                elevation={1}
+                sx={{
+                  p: 4,
+                  flex: 1,
+                  transition: "all 0.3s",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    boxShadow: 3,
+                  },
+                }}
+              >
+                <Typography variant="h5" gutterBottom>
+                  {value.title}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  {value.description}
+                </Typography>
+              </Paper>
             ))}
-          </Grid>
+          </Stack>
         </Box>
       </Container>
     </Box>

@@ -1,5 +1,5 @@
 import { Link as RouterLink } from "react-router-dom"
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, Chip, Box } from "@mui/material"
+import { Card, CardMedia, CardContent, CardActions, Typography, Button, Chip, Box } from "@mui/material"
 
 const products = [
   {
@@ -54,9 +54,9 @@ const products = [
 
 const ProductGrid = () => {
   return (
-    <Grid container={true} spacing={3}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
       {products.map((product) => (
-        <Grid item={true} xs={12} sm={6} md={4} key={product.id}>
+        <Box key={product.id} sx={{ width: "100%", sm: "calc(50% - 24px)", md: "calc(33.33% - 24px)", p: 1 }}>
           <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
             <Box sx={{ position: "relative" }}>
               <CardMedia component="img" height="200" image={product.image} alt={product.name} />
@@ -93,9 +93,9 @@ const ProductGrid = () => {
               </Button>
             </CardActions>
           </Card>
-        </Grid>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   )
 }
 

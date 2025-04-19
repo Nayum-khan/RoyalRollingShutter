@@ -4,7 +4,6 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
   Card,
   CardMedia,
   CardContent,
@@ -69,12 +68,31 @@ const ProductShowcase = () => {
           </Button>
         </Box>
 
-        <Grid container spacing={4}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 4,
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
+        >
           {featuredProducts.map((product) => (
-            <Grid item xs={12} md={4} key={product.id}>
+            <Box
+              key={product.id}
+              sx={{
+                flex: "1 1 300px",
+                maxWidth: "100%",
+                minWidth: "280px",
+              }}
+            >
               <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
                 <Box sx={{ position: "relative" }}>
-                  <CardMedia component="img" height="240" image={product.image} alt={product.name} />
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={product.image}
+                    alt={product.name}
+                  />
                   <Chip
                     label={product.category}
                     color="primary"
@@ -106,9 +124,9 @@ const ProductShowcase = () => {
                   </Button>
                 </CardActions>
               </Card>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   )

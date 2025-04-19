@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Box, Paper } from "@mui/material"
+import { Container, Typography, Box, Paper } from "@mui/material"
 import ShieldIcon from "@mui/icons-material/Shield"
 import WbSunnyIcon from "@mui/icons-material/WbSunny"
 import BoltIcon from "@mui/icons-material/Bolt"
@@ -47,54 +47,67 @@ const Features = () => {
           <Typography variant="h3" component="h2" gutterBottom>
             Why Choose Our Rolling Shutters
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: "auto" }}>
-            Our premium rolling shutters offer a perfect blend of functionality, security, and style for your property.
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{ maxWidth: 800, mx: "auto" }}
+          >
+            Our premium rolling shutters offer a perfect blend of functionality, security, and style
+            for your property.
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 3,
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
+        >
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Paper
-                  elevation={1}
+              <Paper
+                key={index}
+                elevation={1}
+                sx={{
+                  flex: "1 1 300px",
+                  p: 3,
+                  maxWidth: "calc(33.333% - 24px)",
+                  minWidth: "280px",
+                  transition: "all 0.3s",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    boxShadow: 3,
+                  },
+                }}
+              >
+                <Box
                   sx={{
-                    p: 3,
-                    height: "100%",
-                    transition: "all 0.3s",
-                    "&:hover": {
-                      transform: "translateY(-5px)",
-                      boxShadow: 3,
-                    },
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    bgcolor: "primary.light",
+                    color: "primary.main",
+                    width: 56,
+                    height: 56,
+                    borderRadius: "50%",
+                    mb: 2,
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      bgcolor: "primary.light",
-                      color: "primary.main",
-                      width: 56,
-                      height: 56,
-                      borderRadius: "50%",
-                      mb: 2,
-                    }}
-                  >
-                    <Icon />
-                  </Box>
-                  <Typography variant="h6" component="h3" gutterBottom>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {feature.description}
-                  </Typography>
-                </Paper>
-              </Grid>
+                  <Icon />
+                </Box>
+                <Typography variant="h6" component="h3" gutterBottom>
+                  {feature.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {feature.description}
+                </Typography>
+              </Paper>
             )
           })}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   )

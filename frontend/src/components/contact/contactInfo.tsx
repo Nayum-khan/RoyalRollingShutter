@@ -69,24 +69,28 @@ const ContactInfo = () => {
       </Paper>
 
       <Paper elevation={1} sx={{ p: 4 }}>
-        <Typography variant="h5" gutterBottom>
-          Our Location
-        </Typography>
-        <Box
-          sx={{
-            mt: 2,
-            height: 300,
-            bgcolor: "grey.100",
-            borderRadius: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "text.secondary",
-          }}
-        >
-          Google Maps Embed
-        </Box>
-      </Paper>
+  <Typography variant="h5" gutterBottom>
+    Our Location
+  </Typography>
+
+  <Box
+    sx={{
+      mt: 2,
+      height: 300,
+      borderRadius: 1,
+      overflow: "hidden",
+    }}
+  >
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.124478009731!2d73.09194697497577!3d19.01423578217762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e9d3454270e1%3A0x33fe5e797401d996!2sParvati%20Aangan%20Cooperative%20Housing%20Society%2C%20Plot%20-%2066%2C%20Sector%2021%2C%20Kamothe%2C%20Panvel%2C%20Navi%20Mumbai%2C%20Maharashtra%20410209!5e0!3m2!1sen!2sin!4v1745077464857!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </Box>
+</Paper>
     </Box>
   )
 }

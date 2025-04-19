@@ -45,19 +45,22 @@ const Navbar = () => {
         <Toolbar disableGutters>
           {/* Logo for desktop */}
           <Typography
-            variant="h6"
-            noWrap
-            component={RouterLink}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              color: "text.primary",
-            }}
-          >
-            Roll<span style={{ color: theme.palette.primary.main }}>Master</span>
-          </Typography>
+  variant="h6"
+  noWrap
+  component={RouterLink}
+  to="/"
+  sx={{
+    fontWeight: 'bold',
+    color: '#1a237e',
+    fontFamily: 'Orbitron, sans-serif',
+    textTransform: 'uppercase',
+    letterSpacing: 2,
+    textShadow: '1px 1px 4px rgba(0,0,0,0.3)',
+  }}
+>
+  Royal Rolling Shutter
+</Typography>
+
 
           {/* Mobile menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

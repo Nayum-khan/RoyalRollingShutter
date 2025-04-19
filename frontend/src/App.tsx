@@ -8,6 +8,7 @@ import ProductsPage from "./pages/productsPage"
 import AboutPage from "./pages/aboutPage"
 import ContactPage from "./pages/contactPage"
 import ScrollToTop from "./utils/scrollToTop"
+import ProductDetailPage from "./pages/ProductDetail"
 
 // Create a custom theme
 const theme = createTheme({
@@ -69,6 +70,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:id" element={<ProductDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

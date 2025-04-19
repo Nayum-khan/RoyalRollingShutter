@@ -6,7 +6,7 @@ const Hero = () => {
     <Box
       className="hero-section"
       sx={{
-        backgroundImage: "url('/images/hero-bg.jpg')",
+        backgroundImage: "url(/images/1.png)",
         py: { xs: 8, md: 12, lg: 16 },
       }}
     >

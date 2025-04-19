@@ -13,9 +13,9 @@ const ProductsPage = () => {
         />
 
         <Box sx={{ mt: 6, display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4 }}>
-          <Box sx={{ width: { xs: "100%", md: 280 }, flexShrink: 0 }}>
-            <ProductFilters />
-          </Box>
+          {/* <Box sx={{ width: { xs: "100%", md: 280 }, flexShrink: 0 }}> */}
+            {/* <ProductFilters /> */}
+          {/* </Box> */}
           <Box sx={{ flexGrow: 1 }}>
             <ProductGrid />
           </Box>

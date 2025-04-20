@@ -1,78 +1,48 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  Box, Button, Card, CardActions, CardContent, CardMedia, Chip,
-  Container, Typography, List, ListItem, ListItemButton, ListItemText,
-  Drawer, IconButton, useMediaQuery, useTheme, AppBar, Toolbar
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { products } from "../../data/products";
+"use client"
 
-const categories = [
-  "All",
-  "Shutter",
-  "Aluminium-Section",
-  "Doors",
-  "Railing",
-  "Shed",
-  "Stair"
-];
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Chip,
+  Container,
+  Typography,
+  AppBar,
+  Toolbar,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
+import MenuIcon from "@mui/icons-material/Menu"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { products } from "../../data/products"
+import ProductSidebar from "./productSidebar"
+
+const categories = ["All", "Shutter", "Aluminium-Section", "Doors", "Railing", "Shed", "Stair"]
 
 const ProductGrid = () => {
-  const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate()
+  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
   const filteredProducts =
-    selectedCategory === "All"
-      ? products
-      : products.filter((product) => product.category === selectedCategory);
+    selectedCategory === "All" ? products : products.filter((product) => product.category === selectedCategory)
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    setMobileOpen(!mobileOpen)
+  }
 
-  const drawerContent = (
-    <Box sx={{ p: 2 }}>
-      <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", textAlign: "center" }}>
-        Categories
-      </Typography>
-      <List component="nav" disablePadding>
-        {categories.map((category) => (
-          <ListItem key={category} disablePadding>
-            <ListItemButton
-              selected={selectedCategory === category}
-              onClick={() => {
-                setSelectedCategory(category);
-                setMobileOpen(false); // Close drawer on mobile
-              }}
-              sx={{
-                borderRadius: 1,
-                my: 0.5,
-                color: selectedCategory === category ? "primary.main" : "text.primary",
-                bgcolor: selectedCategory === category ? "primary.light" : "transparent",
-                "&:hover": {
-                  bgcolor: "action.hover",
-                }
-              }}
-            >
-              <ListItemText
-                primary={category}
-                primaryTypographyProps={{
-                  fontWeight: selectedCategory === category ? "bold" : "medium",
-                  fontSize: "1rem"
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+  }
 
   return (
     <>
@@ -80,12 +50,7 @@ const ProductGrid = () => {
       {isMobile && (
         <AppBar position="static" sx={{ mb: 2 }}>
           <Toolbar>
-            <IconButton
-              color="inherit"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2 }}
-            >
+            <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -97,45 +62,22 @@ const ProductGrid = () => {
 
       <Box sx={{ py: 4 }}>
         <Container maxWidth="xl">
-          <Box sx={{ 
-            display: "flex", 
-            flexDirection: { xs: "column", sm: "row" }, 
-            gap: 4,
-            position: 'relative'
-          }}>
-            {/* Sidebar */}
-            {isMobile ? (
-              <Drawer
-                anchor="left"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{ keepMounted: true }}
-                sx={{
-                  '& .MuiDrawer-paper': { 
-                    width: '70%', 
-                    boxSizing: 'border-box' 
-                  }
-                }}
-              >
-                {drawerContent}
-              </Drawer>
-            ) : (
-              <Box
-                sx={{
-                  width: "30%",
-                  position: 'sticky',
-                  top: 20,
-                  height: 'fit-content',
-                  bgcolor: "background.paper",
-                  borderRadius: 2,
-                  p: 2,
-                  boxShadow: 1,
-                  border: "1px solid #e0e0e0",
-                }}
-              >
-                {drawerContent}
-              </Box>
-            )}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 4,
+              position: "relative",
+            }}
+          >
+            {/* Sidebar Component */}
+            <ProductSidebar
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={handleCategoryChange}
+              mobileOpen={mobileOpen}
+              onMobileToggle={handleDrawerToggle}
+            />
 
             {/* Product Grid */}
             <Box
@@ -145,7 +87,7 @@ const ProductGrid = () => {
                 display: "flex",
                 flexWrap: "wrap",
                 gap: 4,
-                justifyContent: { xs: "center", sm: "flex-start" }
+                justifyContent: { xs: "center", sm: "flex-start" },
               }}
             >
               {filteredProducts.map((product) => (
@@ -155,7 +97,7 @@ const ProductGrid = () => {
                     flex: "1 1 300px",
                     maxWidth: "100%",
                     minWidth: "280px",
-                    cursor: "pointer"
+                    cursor: "pointer",
                   }}
                 >
                   <Card
@@ -166,8 +108,8 @@ const ProductGrid = () => {
                       transition: "transform 0.3s ease, box-shadow 0.3s ease",
                       "&:hover": {
                         transform: "translateY(-5px)",
-                        boxShadow: 6
-                      }
+                        boxShadow: 6,
+                      },
                     }}
                     onClick={() => navigate(`/products/${product.id}`)}
                   >
@@ -187,7 +129,7 @@ const ProductGrid = () => {
                           position: "absolute",
                           top: 16,
                           left: 16,
-                          fontWeight: "bold"
+                          fontWeight: "bold",
                         }}
                       />
                     </Box>
@@ -205,7 +147,7 @@ const ProductGrid = () => {
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          height: "3em"
+                          height: "3em",
                         }}
                       >
                         {product.description}
@@ -242,7 +184,7 @@ const ProductGrid = () => {
         </Container>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ProductGrid;
+export default ProductGrid

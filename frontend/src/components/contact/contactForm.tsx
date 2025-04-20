@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Box,
   Typography,
@@ -48,6 +48,7 @@ const ContactForm = () => {
       setIsSubmitting(true)
       try {
         await sendContactEmail(values)
+        // Only update the snackbar if the message is different
         setSnackbar({
           open: true,
           message: "Thank you for your inquiry. We'll get back to you shortly.",
@@ -55,6 +56,7 @@ const ContactForm = () => {
         })
         formik.resetForm()
       } catch (error) {
+        // Only update the snackbar if the message is different
         setSnackbar({
           open: true,
           message: "There was a problem sending your message. Please try again.",
@@ -67,8 +69,18 @@ const ContactForm = () => {
   })
 
   const handleCloseSnackbar = () => {
-    setSnackbar({ ...snackbar, open: false })
+    setSnackbar((prevState) => ({ ...prevState, open: false }))
   }
+
+  // Avoid infinite loops by using useEffect to manage snackbar state change
+  useEffect(() => {
+    if (snackbar.open) {
+      const timer = setTimeout(() => {
+        handleCloseSnackbar()
+      }, 6000)
+      return () => clearTimeout(timer)
+    }
+  }, [snackbar.open])
 
   return (
     <Paper elevation={1} sx={{ p: 4 }}>
@@ -147,6 +159,7 @@ const ContactForm = () => {
         </Button>
       </Box>
 
+      {/* Snackbar for Success or Error */}
       <Snackbar open={snackbar.open} autoHideDuration={6000} onClose={handleCloseSnackbar}>
         <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: "100%" }}>
           {snackbar.message}
@@ -156,4 +169,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm;
+export default ContactForm

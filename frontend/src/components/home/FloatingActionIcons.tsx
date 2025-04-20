@@ -26,7 +26,7 @@ const FloatingActionIcons = () => {
     <Box
       sx={{
         position: "fixed",
-        top: "40%",
+        top: "35%",
         right: 0,
         transform: "translateY(-50%)",
         zIndex: 1300,

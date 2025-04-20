@@ -12,8 +12,8 @@ interface ContactFormData {
 export const sendContactEmail = async (data: ContactFormData): Promise<void> => {
     try {
         const response = await emailjs.send(
-            "service_t4asu9k",  // Replace with your EmailJS service ID
-            "template_e6t626d", // Replace with your EmailJS template ID
+            "service_gaeigmw",  // Replace with your EmailJS service ID
+            "template_b7ggg7d", // Replace with your EmailJS template ID
             {
                 from_name: data.name,
                 reply_to: data.email,
@@ -21,7 +21,7 @@ export const sendContactEmail = async (data: ContactFormData): Promise<void> => 
                 inquiry_type: data.inquiryType,
                 message: data.message,
             },
-            "HiRAa3OlmUZ28A2wU" // Replace with your EmailJS user ID
+            "8RukeIPPmdZlSf6tW" // Replace with your EmailJS user ID
         )
         console.log("Email sent successfully:", response)
     } catch (error) {

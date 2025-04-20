@@ -9,6 +9,8 @@ import AboutPage from "./pages/aboutPage"
 import ContactPage from "./pages/contactPage"
 import ScrollToTop from "./utils/scrollToTop"
 import ProductDetailPage from "./pages/ProductDetail"
+import { useEffect } from "react"
+
 
 // Create a custom theme
 const theme = createTheme({
@@ -61,6 +63,7 @@ const theme = createTheme({
 })
 
 function App() {
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

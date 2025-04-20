@@ -66,9 +66,9 @@ const ProductGrid = () => {
                   <Typography variant="body2" color="text.secondary" paragraph>
                     {product.description}
                   </Typography>
-                  <Typography variant="h6" color="primary" sx={{ mt: 1 }}>
+                  {/* <Typography variant="h6" color="primary" sx={{ mt: 1 }}>
                     {product.price}
-                  </Typography>
+                  </Typography> */}
                 </CardContent>
                 <CardActions sx={{ p: 2, pt: 0 }}>
                   <Button

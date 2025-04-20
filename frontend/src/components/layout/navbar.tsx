@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Link as RouterLink } from "react-router-dom"
 import {
@@ -16,6 +15,7 @@ import {
   MenuItem,
   useMediaQuery,
   useTheme,
+  Divider,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 
@@ -40,36 +40,110 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar position="sticky" color="default" elevation={1}>
+    <AppBar position="sticky" color="default" elevation={1} sx={{ py: 1 }}>
       <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          {/* Logo for desktop */}
+        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+          {/* Logo for all screens */}
           <Typography
-  variant="h6"
-  noWrap
-  component={RouterLink}
-  to="/"
-  sx={{
-    fontWeight: 'bold',
-    color: '#1a237e',
-    fontFamily: 'Orbitron, sans-serif',
-    textTransform: 'uppercase',
-    letterSpacing: 2,
-    textShadow: '1px 1px 4px rgba(0,0,0,0.3)',
-  }}
->
-  Royal Rolling Shutter
-</Typography>
+            variant="h6"
+            noWrap
+            component={RouterLink}
+            to="/"
+            sx={{
+              fontWeight: 'bold',
+              color: '#1a237e',
+              fontFamily: 'Orbitron, sans-serif',
+              textTransform: 'uppercase',
+              letterSpacing: 2,
+              textShadow: '1px 1px 4px rgba(0,0,0,0.3)',
+              fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+              '&:hover': {
+                color: 'primary.main',
+              }
+            }}
+          >
+            Royal Rolling Shutter
+          </Typography>
 
+          {/* Desktop menu and CTA */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
+            {navLinks.map((link) => (
+              <Button
+                key={link.name}
+                component={RouterLink}
+                to={link.href}
+                sx={{ 
+                  color: "text.primary",
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  letterSpacing: 0.5,
+                  px: 2,
+                  py: 1,
+                  borderRadius: 1,
+                  textTransform: 'capitalize',
+                  position: 'relative',
+                  '&:hover': {
+                    color: 'primary.main',
+                    backgroundColor: 'transparent',
+                    '&::after': {
+                      width: '60%',
+                    }
+                  },
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: 6,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: 0,
+                    height: 2,
+                    backgroundColor: 'primary.main',
+                    transition: 'width 0.3s ease',
+                  },
+                  '&.active::after': {
+                    width: '60%',
+                  }
+                }}
+              >
+                {link.name}
+              </Button>
+            ))}
+            <Button
+              variant="contained"
+              color="primary"
+              component={RouterLink}
+              to="/contact"
+              sx={{ 
+                ml: 2,
+                fontWeight: 'bold',
+                px: 3,
+                py: 1,
+                fontSize: '0.95rem',
+                letterSpacing: 0.5,
+                textTransform: 'capitalize',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                '&:hover': {
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                  transform: 'translateY(-1px)',
+                },
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Get a Quote
+            </Button>
+          </Box>
 
-          {/* Mobile menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          {/* Mobile menu button */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{
+                color: 'text.primary',
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -77,71 +151,68 @@ const Navbar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: 'block', md: 'none' },
+                '& .MuiPaper-root': {
+                  width: '100%',
+                  maxWidth: 'none',
+                  minWidth: 200,
+                },
+              }}
+              MenuListProps={{
+                sx: {
+                  py: 0,
+                }
               }}
             >
               {navLinks.map((link) => (
-                <MenuItem key={link.name} onClick={handleCloseNavMenu} component={RouterLink} to={link.href}>
-                  <Typography textAlign="center">{link.name}</Typography>
+                <MenuItem 
+                  key={link.name} 
+                  onClick={handleCloseNavMenu} 
+                  component={RouterLink} 
+                  to={link.href}
+                  sx={{
+                    py: 1.5,
+                    '&:hover': {
+                      backgroundColor: 'primary.light',
+                      color: 'primary.contrastText',
+                    }
+                  }}
+                >
+                  <Typography textAlign="center" fontWeight={500}>
+                    {link.name}
+                  </Typography>
                 </MenuItem>
               ))}
-            </Menu>
-          </Box>
-
-          {/* Logo for mobile */}
-          <Typography
-            variant="h6"
-            noWrap
-            component={RouterLink}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontWeight: 700,
-              color: "text.primary",
-            }}
-          >
-            Roll<span style={{ color: theme.palette.primary.main }}>Master</span>
-          </Typography>
-
-          {/* Desktop menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
-            {navLinks.map((link) => (
-              <Button
-                key={link.name}
-                component={RouterLink}
-                to={link.href}
-                onClick={handleCloseNavMenu}
-                sx={{ mx: 1, color: "text.primary", display: "block" }}
+              <Divider />
+              <MenuItem 
+                onClick={handleCloseNavMenu} 
+                component={RouterLink} 
+                to="/contact"
+                sx={{
+                  backgroundColor: 'primary.main',
+                  color: 'primary.contrastText',
+                  py: 1.5,
+                  '&:hover': {
+                    backgroundColor: 'primary.dark',
+                  }
+                }}
               >
-                {link.name}
-              </Button>
-            ))}
-          </Box>
-
-          {/* CTA Button */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Button
-              variant="contained"
-              color="primary"
-              component={RouterLink}
-              to="/contact"
-              sx={{ display: { xs: "none", md: "block" } }}
-            >
-              Get a Quote
-            </Button>
+                <Typography textAlign="center" fontWeight="bold">
+                  Get a Quote
+                </Typography>
+              </MenuItem>
+            </Menu>
           </Box>
         </Toolbar>
       </Container>

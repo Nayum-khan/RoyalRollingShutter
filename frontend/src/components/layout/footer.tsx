@@ -35,7 +35,7 @@ const Footer = () => {
           {/* Company Info */}
           <Box sx={{ flex: "1 1 240px" }}>
             <Typography variant="h6" gutterBottom fontWeight="bold">
-              RollMaster
+              Royal Rolling Shutter
             </Typography>
             <Typography variant="body2" color="grey.400" paragraph>
               Premium rolling shutter solutions for residential and commercial
@@ -120,7 +120,7 @@ const Footer = () => {
                   sx={{ color: theme.palette.primary.main, mr: 1, mt: 0.5 }}
                 />
                 <Typography variant="body2" color="grey.400">
-                  123 Shutter Street, Rolling Hills, CA 90210
+                Shop No. 5, behind city point hotel, Palej, Gujarat 392220
                 </Typography>
               </Box>
               <Box
@@ -134,7 +134,7 @@ const Footer = () => {
                   href="tel:+11234567890"
                   sx={{ color: "grey.400", "&:hover": { color: "white" } }}
                 >
-                  (123) 456-7890
+                  8505091532
                 </Link>
               </Box>
               <Box
@@ -145,10 +145,10 @@ const Footer = () => {
                   sx={{ color: theme.palette.primary.main, mr: 1 }}
                 />
                 <Link
-                  href="mailto:info@rollmaster.com"
+                  href="mailto:royalrollingshuttersgujrat@gmail.com"
                   sx={{ color: "grey.400", "&:hover": { color: "white" } }}
                 >
-                  info@rollmaster.com
+                  royalrollingshuttersgujrat@gmail.com
                 </Link>
               </Box>
             </Box>
@@ -158,7 +158,7 @@ const Footer = () => {
         <Divider sx={{ borderColor: "grey.800", my: 3 }} />
 
         <Typography variant="body2" color="grey.500" align="center">
-          &copy; {currentYear} RollMaster. All rights reserved.
+          &copy; {currentYear} RollRollingShutter. All rights reserved.
         </Typography>
       </Container>
     </Box>

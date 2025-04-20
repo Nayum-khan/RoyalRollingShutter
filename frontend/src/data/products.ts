@@ -80,4 +80,16 @@ export const products = [
       category: "Residential",
       price: "$1,299",
     },
+    {
+      id: 7,
+      name: "Motorized Residential Shutters",
+      description: "Convenient remote-controlled shutters for easy operation.",
+      images: [
+        "/images/p1.png",
+        "/images/p1.png",
+        "/images/p1.png"
+      ],
+      category: "Residential",
+      price: "$1,299",
+    },
   ]

@@ -6,7 +6,7 @@ import PhoneIcon from "@mui/icons-material/Phone"
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
 
 const iconStyle = {
-  backgroundColor: "transparent",
+  backgroundColor: "white",
   color: "black",
   m: 1,
   width: 50,

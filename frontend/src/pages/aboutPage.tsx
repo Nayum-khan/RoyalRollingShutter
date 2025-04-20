@@ -21,8 +21,8 @@ const AboutPage = () => {
     <Box component="main" sx={{ py: 6 }}>
       <Container maxWidth="lg">
         <PageHeader
-          title="About RollMaster"
-          description="Delivering premium rolling shutter solutions since 2005."
+          title="About Royal Rolling Shutter"
+          description="Delivering premium rolling shutter solutions since 2015."
         />
 
         {/* Section: Story + Image */}
@@ -39,7 +39,7 @@ const AboutPage = () => {
               Our Story
             </Typography>
             <Typography paragraph>
-              Founded in 2005, RollMaster has grown from a small family business to one of the leading providers of
+              Founded in 2015, Royal Rolling Shutter has grown from a small family business to one of the leading providers of
               rolling shutter solutions in the region.
             </Typography>
             <Typography paragraph>
@@ -59,8 +59,8 @@ const AboutPage = () => {
           <Box flex={1}>
             <Box
               component="img"
-              src="/images/about-factory.jpg"
-              alt="RollMaster factory"
+              src="/images/p1.png"
+              alt="Royal Rolling Shutter"
               sx={{
                 width: "100%",
                 height: 400,

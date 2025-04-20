@@ -11,7 +11,6 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import gsap from "gsap";
 import ExpandMoreIcon from "@mui/icons-material/KeyboardArrowDown";
 import { keyframes } from "@emotion/react";
 
@@ -68,7 +67,7 @@ const Hero = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
         loop
-        style={{ height: "100%" }}
+        style={{ height: "90%" }}
       >
         {heroImages.map((img, i) => (
           <SwiperSlide key={i}>
@@ -88,9 +87,9 @@ const Hero = () => {
       <Box
         sx={{
           position: "absolute",
-          top: 0,
+          top: -10,
           left: 0,
-          height: "100%",
+          height: "90%",
           width: "100%",
           bgcolor: "rgba(0, 0, 0, 0.5)",
           display: "flex",
@@ -178,7 +177,7 @@ const Hero = () => {
       <Box
         sx={{
           position: "absolute",
-          bottom: 100,
+          bottom: 130,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 3

@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { StatsSection } from "../components/home/StatsSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -69,6 +70,7 @@ const HomePage = () => {
       <Box className="animate-section">
         <Testimonials />
       </Box>
+      <StatsSection />
       <Box className="animate-section">
         <CTA />
       </Box>

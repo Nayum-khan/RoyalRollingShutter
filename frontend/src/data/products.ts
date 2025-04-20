@@ -7,30 +7,32 @@ export interface Product {
   price: string;
 }
 
-export const products = [
+export const products = [ 
   {
-    id: 1,
-    name: "Aluminum Security Shutters",
-    description: `Aluminum Security Shutters are lightweight yet highly durable rolling shutters made from premium-grade aluminum slats, specially designed to offer security, aesthetics, and corrosion resistance. These shutters are widely used in residential, commercial, and industrial spaces for doors, windows, and counters where both protection and style are required.
+  id: 1,
+  name: "Color-Coated-Shutter",
+  description: `A Color-Coated Shutter is a high-quality shutter system that is made from mild steel or galvanized steel and then coated with a color finish using powder coating or polyester coating techniques. These shutters not only offer superior protection and security but also enhance the aesthetic appeal of the property with a wide range of vibrant colors.
 
 Key Features:
-Made from extruded or roll-formed aluminum slats
+Made from mild steel or galvanized steel – sturdy and rust-resistant
 
-Corrosion and rust-resistant – ideal for all weather conditions
+Color-coated finish – available in a variety of shades (standard and custom colors)
 
-Lightweight construction – easy to operate manually or motorized
+Powder coating – provides better durability and scratch resistance
 
-Smooth and silent rolling mechanism
+Resistant to fading and UV degradation – maintains color quality for longer
 
-Available with powder coating or anodized finish for a sleek look.`,
-    images: [
-      "/images/AluminumSecurity1.jpg",
-      "/images/AluminumSecurity2.jpg",
-      "/images/AluminumSecurity3.jpg"
-    ],
-    category: "Shutter",
-    price: "$899",
-  },
+Manual or motorized operation – tailored to suit different needs`,
+  images: [
+    "/images/ColorCoated1.jpg",
+    "/images/ColorCoated2.jpg",
+    "/images/ColorCoated3.webp"
+
+  ],
+  category: "Shutter",
+  price: "$1,299",
+},
+ 
   {
     id: 2,
     name: "Steel Commercial Shutters",
@@ -165,28 +167,30 @@ Cost-effective – more affordable than automatic shutters..`,
     ],
     category: "Shutter",
     price: "$1,299",
-  },
-  {
+  }, {
     id: 8,
-    name: "Motorized Shutter",
-    description: `A Motorized Shutter is an advanced and convenient shutter system that operates automatically with the help of an electric motor. It can be controlled via remote, wall switch, or even a mobile app in some modern systems. Made from high-quality materials like galvanized steel, aluminum, or polycarbonate, this shutter offers both security and ease of use.
+    name: "Aluminium shutters",
+    description: `Aluminium Shutters are lightweight, corrosion-resistant, and highly durable shutter systems designed for both residential and commercial applications. These shutters offer a sleek appearance while ensuring security and weather protection. They are available in both manual and motorized versions.
 
 Key Features:
-Remote or switch-controlled – smooth and effortless operation.
+Made from premium-grade aluminum – rust-proof and weather-resistant
 
-Electric motor-driven – fast opening and closing.
+Lightweight yet strong – easy to operate and long-lasting
 
-Silent operation – minimal noise during movement.
+Smooth finish with powder coating options – available in multiple colors
 
-Customizable sizes and finishes – suitable for all property types.`,
+Low noise operation – ideal for urban and indoor spaces
+
+Available in solid, perforated, or grill types`,
     images: [
-      "/images/Motorized1.jpg",
-      "/images/Motorized2.webp",
-      "/images/Motorized2.webp"
+      "/images/Aluminium1.jpg",
+      "/images/Aluminium2.webp",
+      "/images/Aluminium3.jpg"
     ],
     category: "Shutter",
     price: "$1,299",
   },
+ 
   {
     id: 9,
     name: "Gear-Rolling-Shutter",
@@ -233,23 +237,21 @@ Transparent sections optional – for visibility and safety`,
   },
   {
     id: 11,
-    name: "Aluminium shutters",
-    description: `Aluminium Shutters are lightweight, corrosion-resistant, and highly durable shutter systems designed for both residential and commercial applications. These shutters offer a sleek appearance while ensuring security and weather protection. They are available in both manual and motorized versions.
+    name: "Motorized Shutter",
+    description: `A Motorized Shutter is an advanced and convenient shutter system that operates automatically with the help of an electric motor. It can be controlled via remote, wall switch, or even a mobile app in some modern systems. Made from high-quality materials like galvanized steel, aluminum, or polycarbonate, this shutter offers both security and ease of use.
 
 Key Features:
-Made from premium-grade aluminum – rust-proof and weather-resistant
+Remote or switch-controlled – smooth and effortless operation.
 
-Lightweight yet strong – easy to operate and long-lasting
+Electric motor-driven – fast opening and closing.
 
-Smooth finish with powder coating options – available in multiple colors
+Silent operation – minimal noise during movement.
 
-Low noise operation – ideal for urban and indoor spaces
-
-Available in solid, perforated, or grill types`,
+Customizable sizes and finishes – suitable for all property types.`,
     images: [
-      "/images/Aluminium1.jpg",
-      "/images/Aluminium2.webp",
-      "/images/Aluminium3.jpg"
+      "/images/Motorized1.jpg",
+      "/images/Motorized2.webp",
+      "/images/Motorized2.webp"
     ],
     category: "Shutter",
     price: "$1,299",
@@ -326,27 +328,26 @@ Supports manual, gear, or motorized operation`,
   },
   {
     id: 15,
-    name: "Color-Coated-Shutter",
-    description: `A Color-Coated Shutter is a high-quality shutter system that is made from mild steel or galvanized steel and then coated with a color finish using powder coating or polyester coating techniques. These shutters not only offer superior protection and security but also enhance the aesthetic appeal of the property with a wide range of vibrant colors.
+    name: "Aluminum Security Shutters",
+    description: `Aluminum Security Shutters are lightweight yet highly durable rolling shutters made from premium-grade aluminum slats, specially designed to offer security, aesthetics, and corrosion resistance. These shutters are widely used in residential, commercial, and industrial spaces for doors, windows, and counters where both protection and style are required.
 
 Key Features:
-Made from mild steel or galvanized steel – sturdy and rust-resistant
+Made from extruded or roll-formed aluminum slats
 
-Color-coated finish – available in a variety of shades (standard and custom colors)
+Corrosion and rust-resistant – ideal for all weather conditions
 
-Powder coating – provides better durability and scratch resistance
+Lightweight construction – easy to operate manually or motorized
 
-Resistant to fading and UV degradation – maintains color quality for longer
+Smooth and silent rolling mechanism
 
-Manual or motorized operation – tailored to suit different needs`,
+Available with powder coating or anodized finish for a sleek look.`,
     images: [
-      "/images/ColorCoated1.jpg",
-      "/images/ColorCoated2.jpg",
-      "/images/ColorCoated3.webp"
-
+      "/images/AluminumSecurity1.jpg",
+      "/images/AluminumSecurity2.jpg",
+      "/images/AluminumSecurity3.jpg"
     ],
     category: "Shutter",
-    price: "$1,299",
+    price: "$899",
   },
   {
     id: 16,

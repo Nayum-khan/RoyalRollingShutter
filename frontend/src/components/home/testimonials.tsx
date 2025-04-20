@@ -89,7 +89,7 @@ const Testimonials = () => {
         py: 10,
         position: 'relative',
         overflow: 'hidden',
-        background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${theme.palette.grey[100]} 100%)`,
+        background: `rgb(247, 255, 255)`,
         '&:before': {
           content: '""',
           position: 'absolute',

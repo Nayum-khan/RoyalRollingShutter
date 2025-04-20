@@ -58,16 +58,16 @@ const ProductDetailPage = () => {
           background: 'white',
           position: 'relative',
           overflow: 'hidden',
-          '&:before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            width: '40%',
-            height: '100%',
-            background: 'linear-gradient(45deg, rgba(26,35,126,0.05) 0%, rgba(26,35,126,0.01) 100%)',
-            zIndex: 0
-          }
+          // '&:before': {
+          //   content: '""',
+          //   position: 'absolute',
+          //   top: 0,
+          //   right: 0,
+          //   width: '40%',
+          //   height: '100%',
+          //   background: 'linear-gradient(45deg, rgba(26,35,126,0.05) 0%, rgba(26,35,126,0.01) 100%)',
+          //   zIndex: 0
+          // }
         }}>
           <Button
             startIcon={<ArrowBackIcon />}

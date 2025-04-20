@@ -10,6 +10,7 @@ import ContactPage from "./pages/contactPage"
 import ScrollToTop from "./utils/scrollToTop"
 import ProductDetailPage from "./pages/ProductDetail"
 import { useEffect } from "react"
+import FloatingActionIcons from "./components/home/FloatingActionIcons"
 
 
 // Create a custom theme
@@ -65,10 +66,12 @@ const theme = createTheme({
 function App() {
   
   return (
+    
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <ScrollToTop />
+        <FloatingActionIcons/>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

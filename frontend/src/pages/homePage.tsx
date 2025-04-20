@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Hero from "../components/home/hero";
+import FloatingActionIcons from "../components/home/FloatingActionIcons";
 import Features from "../components/home/features";
 import ProductShowcase from "../components/home/productShowcase";
 import Testimonials from "../components/home/testimonials";
@@ -56,6 +57,7 @@ const HomePage = () => {
   }, []);
 
   return (
+
     <Box component="main" ref={containerRef}>
       <Hero />
       <Box className="animate-section">

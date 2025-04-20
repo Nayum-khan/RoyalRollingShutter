@@ -82,12 +82,14 @@ const ProductGrid = () => {
             {/* Product Grid */}
             <Box
               sx={{
-                flexGrow: 1,
                 width: { sm: "70%" },
-                display: "flex",
-                flexWrap: "wrap",
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  sm: "repeat(auto-fill, minmax(280px, 1fr))",
+                },
                 gap: 4,
-                justifyContent: { xs: "center", sm: "flex-start" },
+                justifyContent: "center",
               }}
             >
               {filteredProducts.map((product) => (

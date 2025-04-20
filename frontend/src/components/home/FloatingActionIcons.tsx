@@ -4,6 +4,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline"
 import EmailIcon from "@mui/icons-material/Email"
 import PhoneIcon from "@mui/icons-material/Phone"
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
+import { useEffect, useRef } from "react"
 
 const iconStyle = {
   backgroundColor: "white",
@@ -22,6 +23,20 @@ const iconStyle = {
 }
 
 const FloatingActionIcons = () => {
+  const iconsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (iconsRef.current) {
+        const viewportHeight = window.innerHeight;
+        iconsRef.current.style.top = `${viewportHeight * 0.35}px`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Box
       sx={{

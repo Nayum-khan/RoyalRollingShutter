@@ -1,17 +1,18 @@
-"use client"
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
-
-// This component scrolls to the top of the page when navigating between routes
 const ScrollToTop = () => {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+  }, [pathname]);
 
-  return null
-}
+  return null;
+};
 
-export default ScrollToTop
+export default ScrollToTop;

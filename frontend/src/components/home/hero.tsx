@@ -177,7 +177,7 @@ const Hero = () => {
       <Box
         sx={{
           position: "absolute",
-          bottom: 130,
+          bottom: 150,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 3

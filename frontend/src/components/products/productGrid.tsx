@@ -29,6 +29,7 @@ const categories = [
   "Railing",
   "Shed",
   "Stair",
+  "Table"
 ]
 
 const ProductGrid = () => {

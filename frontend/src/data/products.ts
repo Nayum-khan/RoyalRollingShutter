@@ -464,9 +464,9 @@ Customizable shapes and sizes – flat, round, square bars
 
 Suitable for indoor and outdoor use`,
       images: [
-        "/images/Msgrill1.jpg",
-        "/images/Msgrill2.jpg",
-        "/images/Msgrill3.jpg"
+        "/images/msgrill1.jpg",
+        "/images/msgrill2.jpg",
+        "/images/msgrill3.jpg"
       ],
       category: "Railing",
       price: "$1,299",

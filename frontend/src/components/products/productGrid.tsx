@@ -45,12 +45,8 @@ const ProductGrid = () => {
       ? products
       : products.filter((p) => p.category === selectedCategory)
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
-  const handleCategoryChange = (cat: string) => {
-    setSelectedCategory(cat)
-  }
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen)
+  const handleCategoryChange = (cat: string) => setSelectedCategory(cat)
 
   return (
     <>
@@ -73,7 +69,7 @@ const ProductGrid = () => {
         </AppBar>
       )}
 
-      <Box sx={{ py: 2, px: { xs: 2, sm: 4 } }}>
+      <Box sx={{ py: 2 }}>
         <Box
           sx={{
             display: "flex",
@@ -82,20 +78,15 @@ const ProductGrid = () => {
             gap: 4,
           }}
         >
-          {/* Sidebar - 40% width on sm+ */}
+          {/* Sidebar: no container padding, flush to left */}
           <Box
             sx={{
               width: { xs: "100%", sm: "35%" },
-
               position: "sticky",
-              top: 80, // adjust depending on your AppBar height
-              left: 10,
+              top: 80,
+              left:10,
               height: "fit-content",
               bgcolor: "transparent",
-              borderRadius: 2,
-              pr: 2,
-              boxShadow: "none",
-              border: "none",
             }}
           >
             <ProductSidebar
@@ -107,10 +98,11 @@ const ProductGrid = () => {
             />
           </Box>
 
-          {/* Grid - 60% width on sm+ */}
+          {/* Grid: only this box is padded */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "60%" },
+              width: { xs: "100%", sm: "65%" },
+              px: { xs: 2, sm: 4 },     // ← apply padding here
               display: "grid",
               gridTemplateColumns: {
                 xs: "1fr",
@@ -122,9 +114,7 @@ const ProductGrid = () => {
             {filteredProducts.map((product) => (
               <Box
                 key={product.id}
-                sx={{
-                  cursor: "pointer",
-                }}
+                sx={{ cursor: "pointer" }}
                 onClick={() => navigate(`/products/${product.id}`)}
               >
                 <Card
@@ -149,10 +139,7 @@ const ProductGrid = () => {
                       height="380"
                       image={product.images[0]}
                       alt={product.name}
-                      sx={{
-                        objectFit: "cover",
-
-                      }}
+                      sx={{ objectFit: "cover" }}
                     />
                     <Chip
                       label={product.category}
@@ -174,7 +161,6 @@ const ProductGrid = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      paragraph
                       sx={{
                         display: "-webkit-box",
                         WebkitLineClamp: 2,

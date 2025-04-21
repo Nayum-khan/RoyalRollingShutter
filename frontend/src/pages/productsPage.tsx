@@ -6,7 +6,13 @@ import PageHeader from "../components/ui/pageHeader"
 const ProductsPage = () => {
   return (
     <Box component="main" sx={{ py: 6 }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg"
+        sx={{
+          pl: { xs: 0, sm: 0 }, // Remove left padding
+          pr: { xs: 2, sm: 4 }, // Keep right padding
+        }}
+        disableGutters // Disable default gutters
+      >
         <PageHeader
           title="Our Products"
           description="Explore our complete range of premium rolling shutters designed for durability, security, and style."
@@ -14,7 +20,7 @@ const ProductsPage = () => {
 
         <Box sx={{ mt: 6, display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4 }}>
           {/* <Box sx={{ width: { xs: "100%", md: 280 }, flexShrink: 0 }}> */}
-            {/* <ProductFilters /> */}
+          {/* <ProductFilters /> */}
           {/* </Box> */}
           <Box sx={{ flexGrow: 1 }}>
             <ProductGrid />

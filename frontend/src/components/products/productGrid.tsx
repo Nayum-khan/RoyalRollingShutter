@@ -10,7 +10,6 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Container,
   Typography,
   AppBar,
   Toolbar,
@@ -23,7 +22,15 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { products } from "../../data/products"
 import ProductSidebar from "./productSidebar"
 
-const categories = ["All", "Shutter", "Aluminium-Section", "Doors", "Railing", "Shed", "Stair"]
+const categories = [
+  "All",
+  "Shutter",
+  "Aluminium-Section",
+  "Doors",
+  "Railing",
+  "Shed",
+  "Stair",
+]
 
 const ProductGrid = () => {
   const navigate = useNavigate()
@@ -34,23 +41,29 @@ const ProductGrid = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
   const filteredProducts =
-    selectedCategory === "All" ? products : products.filter((product) => product.category === selectedCategory)
+    selectedCategory === "All"
+      ? products
+      : products.filter((p) => p.category === selectedCategory)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category)
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCategory(cat)
   }
 
   return (
     <>
-      {/* AppBar for mobile */}
+      {/* Mobile AppBar with Drawer toggle */}
       {isMobile && (
         <AppBar position="static" sx={{ mb: 2 }}>
           <Toolbar>
-            <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2 }}>
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2 }}
+            >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -60,20 +73,31 @@ const ProductGrid = () => {
         </AppBar>
       )}
 
-      <Box sx={{ py: 2 }}>
-
-
-
-        <Container maxWidth="xl">
+      <Box sx={{ py: 2, px: { xs: 2, sm: 4 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "flex-start",
+            gap: 4,
+          }}
+        >
+          {/* Sidebar - 40% width on sm+ */}
           <Box
             sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              gap: 4,
-              position: "relative",
+              width: { xs: "100%", sm: "35%" },
+
+              position: "sticky",
+              top: 80, // adjust depending on your AppBar height
+              left: 10,
+              height: "fit-content",
+              bgcolor: "transparent",
+              borderRadius: 2,
+              pr: 2,
+              boxShadow: "none",
+              border: "none",
             }}
           >
-            {/* Sidebar Component */}
             <ProductSidebar
               categories={categories}
               selectedCategory={selectedCategory}
@@ -81,113 +105,117 @@ const ProductGrid = () => {
               mobileOpen={mobileOpen}
               onMobileToggle={handleDrawerToggle}
             />
+          </Box>
 
-            {/* Product Grid */}
-            <Box
-              sx={{
-                width: { sm: "70%" },
-                // ml: { sm: "30%" }, // <-- Add this line
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  sm: "repeat(auto-fill, minmax(280px, 1fr))",
-                },
-                gap: 4,
-                justifyContent: "center",
-              }}
-            >
-              {filteredProducts.map((product) => (
-                <Box
-                  key={product.id}
+          {/* Grid - 60% width on sm+ */}
+          <Box
+            sx={{
+              width: { xs: "100%", sm: "60%" },
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(auto-fill, minmax(280px, 1fr))",
+              },
+              gap: 4,
+            }}
+          >
+            {filteredProducts.map((product) => (
+              <Box
+                key={product.id}
+                sx={{
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate(`/products/${product.id}`)}
+              >
+                <Card
                   sx={{
-                    flex: "1 1 300px",
-                    maxWidth: "100%",
-                    minWidth: "280px",
-                    cursor: "pointer",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-5px)",
+                      boxShadow: 6,
+                    },
+                    "&:hover img": {
+                      transform: "scale(1.05)",
+                      transition: "transform 0.3s ease",
+                    },
                   }}
                 >
-                  <Card
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                      "&:hover": {
-                        transform: "translateY(-5px)",
-                        boxShadow: 6,
-                      },
-                    }}
-                    onClick={() => navigate(`/products/${product.id}`)}
-                  >
-                    <Box sx={{ position: "relative" }}>
-                      <CardMedia
-                        component="img"
-                        height="380"
-                        image={product.images[0]}
-                        alt={product.name}
-                        sx={{ objectFit: "cover" }}
-                      />
-                      <Chip
-                        label={product.category}
-                        color="primary"
-                        size="small"
-                        sx={{
-                          position: "absolute",
-                          top: 16,
-                          left: 16,
-                          fontWeight: "bold",
-                        }}
-                      />
-                    </Box>
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography variant="h5" component="h3" gutterBottom>
-                        {product.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        paragraph
-                        sx={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          height: "3em",
-                        }}
-                      >
-                        {product.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions sx={{ p: 2, pt: 0 }}>
-                      <Button
-                        size="small"
-                        color="primary"
-                        component={Link}
-                        to={`/products/${product.id}`}
-                        endIcon={<ArrowForwardIcon />}
-                        sx={{ fontWeight: "bold" }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View Details
-                      </Button>
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        component={Link}
-                        to="/contact"
-                        sx={{ fontWeight: "bold" }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Request Quote
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Box>
-              ))}
-            </Box>
+                  <Box sx={{ position: "relative" }}>
+                    <CardMedia
+                      component="img"
+                      height="380"
+                      image={product.images[0]}
+                      alt={product.name}
+                      sx={{
+                        objectFit: "cover",
+
+                      }}
+                    />
+                    <Chip
+                      label={product.category}
+                      color="primary"
+                      size="small"
+                      sx={{
+                        position: "absolute",
+                        top: 16,
+                        left: 16,
+                        fontWeight: "bold",
+                      }}
+                    />
+                  </Box>
+
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography variant="h5" component="h3" gutterBottom>
+                      {product.name}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      paragraph
+                      sx={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        height: "3em",
+                      }}
+                    >
+                      {product.description}
+                    </Typography>
+                  </CardContent>
+
+                  <CardActions sx={{ p: 2, pt: 0 }}>
+                    <Button
+                      size="small"
+                      color="primary"
+                      component={Link}
+                      to={`/products/${product.id}`}
+                      endIcon={<ArrowForwardIcon />}
+                      sx={{ fontWeight: "bold" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View Details
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      component={Link}
+                      to="/contact"
+                      sx={{ fontWeight: "bold" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Request Quote
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Box>
+            ))}
           </Box>
-        </Container>
+        </Box>
       </Box>
     </>
   )

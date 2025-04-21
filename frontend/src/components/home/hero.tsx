@@ -67,7 +67,7 @@ const Hero = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
         loop
-        style={{ height: "90%" }}
+        style={{ height: "89%" }}
       >
         {heroImages.map((img, i) => (
           <SwiperSlide key={i}>
@@ -89,7 +89,7 @@ const Hero = () => {
           position: "absolute",
           top: -10,
           left: 0,
-          height: "90%",
+          height: "90.5%",
           width: "100%",
           bgcolor: "rgba(0, 0, 0, 0.5)",
           display: "flex",
@@ -107,7 +107,7 @@ const Hero = () => {
               variant="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2.5rem", md: "4rem" },
+                fontSize: { xs: "2rem", md: "4rem" },
                 color: "white",
                 mb: 3,
                 minHeight: "4.5rem"
@@ -177,7 +177,7 @@ const Hero = () => {
       <Box
         sx={{
           position: "absolute",
-          bottom: 150,
+          bottom: 155,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 3

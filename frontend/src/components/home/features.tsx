@@ -9,20 +9,18 @@ import SettingsIcon from "@mui/icons-material/Settings"
 import { useInView } from "react-intersection-observer"
 import { OverridableComponent } from "@mui/material/OverridableComponent"
 
-// Define the Feature type
 type Feature = {
   icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
-    muiName: string;
-  };
-  title: string;
-  description: string;
-  color: string;
+    muiName: string
+  }
+  title: string
+  description: string
+  color: string
 }
 
-// Define props for FeatureCard component
 type FeatureCardProps = {
-  feature: Feature;
-  index: number;
+  feature: Feature
+  index: number
 }
 
 const features: Feature[] = [
@@ -78,12 +76,12 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      style={{ flex: "1 1 300px", minWidth: "280px" }}
+      style={{ flex: "1 1 360px", maxWidth: "80%" }}
     >
       <Paper
         elevation={2}
         sx={{
-          p: 4,
+          p: { xs: 2, sm: 3, md: 4 },
           height: "100%",
           borderRadius: 3,
           background: "linear-gradient(145deg, #ffffff, #f5f5f5)",
@@ -113,10 +111,10 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             justifyContent: "center",
             bgcolor: "white",
             color: feature.color,
-            width: 64,
-            height: 64,
+            width: { xs: 48, sm: 56, md: 64 },
+            height: { xs: 48, sm: 56, md: 64 },
             borderRadius: "50%",
-            mb: 3,
+            mb: 2,
             boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
             transition: "all 0.3s",
             "&:hover": {
@@ -124,12 +122,12 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             },
           }}
         >
-          <Icon sx={{ fontSize: 32 }} />
+          <Icon sx={{ fontSize: { xs: 24, sm: 28, md: 32 } }} />
         </Box>
-        <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
+        <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 600, fontSize: { xs: "1rem", sm: "1.1rem" } }}>
           {feature.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: { xs: "0.85rem", sm: "0.95rem" } }}>
           {feature.description}
         </Typography>
       </Paper>
@@ -144,7 +142,7 @@ const Features = () => {
   })
 
   return (
-    <Box className="section-padding" sx={{ background: "rgb(247, 255, 255) ", py: 8 }}>
+    <Box className="section-padding" sx={{ background: "rgb(247, 255, 255)", py: 8 }}>
       <Container maxWidth="lg">
         <motion.div
           ref={ref}
@@ -159,6 +157,7 @@ const Features = () => {
               gutterBottom
               sx={{
                 fontWeight: 700,
+                fontSize: { xs: "1.75rem", sm: "2.2rem", md: "2.5rem" },
                 position: "relative",
                 display: "inline-block",
                 "&:after": {
@@ -179,7 +178,12 @@ const Features = () => {
             <Typography
               variant="body1"
               color="text.secondary"
-              sx={{ maxWidth: 800, mx: "auto", mt: 3, fontSize: "1.1rem" }}
+              sx={{
+                maxWidth: 800,
+                mx: "auto",
+                mt: 3,
+                fontSize: { xs: "0.95rem", sm: "1.05rem" },
+              }}
             >
               Our premium rolling shutters offer a perfect blend of functionality, security, and style
               for your property.
@@ -191,7 +195,7 @@ const Features = () => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            gap: 4,
+            gap: { xs: 2, sm: 4 },
             justifyContent: "center",
           }}
         >

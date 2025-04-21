@@ -60,7 +60,10 @@ const ProductGrid = () => {
         </AppBar>
       )}
 
-      <Box sx={{ py: 4 }}>
+      <Box sx={{ py: 2 }}>
+
+
+
         <Container maxWidth="xl">
           <Box
             sx={{
@@ -83,6 +86,7 @@ const ProductGrid = () => {
             <Box
               sx={{
                 width: { sm: "70%" },
+                // ml: { sm: "30%" }, // <-- Add this line
                 display: "grid",
                 gridTemplateColumns: {
                   xs: "1fr",

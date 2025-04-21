@@ -96,14 +96,16 @@ const ProductSidebar = ({
     <Box
       sx={{
         width: "30%",
+        alignSelf: "flex-start", // ensures it doesn't stretch
         position: "sticky",
-        top: 20,
+        top: 80, // adjust depending on your AppBar height
+        left:10,
         height: "fit-content",
-        bgcolor: "background.paper",
+        bgcolor: "transparent",
         borderRadius: 2,
-        p: 2,
-        boxShadow: 1,
-        border: "1px solid #e0e0e0",
+        pr:2 ,
+        boxShadow: "none",
+        border: "none",
       }}
     >
       {sidebarContent}

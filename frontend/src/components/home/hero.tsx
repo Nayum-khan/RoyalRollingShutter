@@ -108,7 +108,7 @@ const Hero = () => {
               sx={{
                 fontWeight: 700,
                 fontSize: { xs: "2rem", md: "4.5rem" },
-                fontFamily: "'Calisto MT', sans-serif",
+                fontFamily: "'Playfair Display', sans-serif",
                 color: "white",
                 mb: 3,
                 minHeight: "4.5rem"

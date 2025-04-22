@@ -107,7 +107,8 @@ const Hero = () => {
               variant="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2rem", md: "4rem" },
+                fontSize: { xs: "2rem", md: "4.5rem" },
+                fontFamily: "'Calisto MT', sans-serif",
                 color: "white",
                 mb: 3,
                 minHeight: "4.5rem"
@@ -134,9 +135,11 @@ const Hero = () => {
 
           {showTitle && typedText === fullText && (
             <>
-              <Typography variant="h6" sx={{ color: "grey.100", mb: 4 }}>
+            
+              <Typography variant="h5" sx={{ color: "grey.100", mb: 4,fontFamily: "'Playfair Display', serif"}}>
                 Premium Rolling Shutters for Modern Homes & Businesses
               </Typography>
+              
               <Stack
                 direction={{ xs: "column", sm: "row" }}
                 spacing={2}

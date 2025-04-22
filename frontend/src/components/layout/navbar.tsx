@@ -89,28 +89,52 @@ const Navbar = () => {
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Logo for all screens */}
-          <Typography
-            variant="h6"
-            noWrap
-            component={RouterLink}
-            to="/"
-            sx={{
-              fontWeight: "bold",
-              color: "white",
-              fontFamily: "Orbitron, sans-serif",
-              textTransform: "uppercase",
-              letterSpacing: 2,
-              textShadow: "1px 1px 4px rgba(0,0,0,0.3)",
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-              "&:hover": {
-                color: "rgba(255, 255, 255, 0.9)",
-                textShadow: "1px 1px 8px rgba(255,255,255,0.5)",
-              },
-              transition: "all 0.3s ease",
-            }}
-          >
-            Royal Rolling Shutter
-          </Typography>
+          <Box
+  component={RouterLink}
+  to="/"
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
+    gap: 1.2,
+  }}
+>
+<Box
+  component="img"
+  src="/images/logo2.png"
+  alt="Logo"
+  sx={{
+    height: {
+      xs: 50,  // for extra small screens (mobile)
+      sm: 60,  // for small and up
+      md: 70,  // optional: for medium and up
+    },
+    width: "auto",
+  }}
+/>
+
+  <Typography
+    variant="h6"
+    noWrap
+    sx={{
+      fontWeight: "bold",
+      color: "white",
+      fontFamily: "Calisto MT,Orbitron, sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: 2,
+      textShadow: "5px 1px 4px rgba(0,0,0,0.3)",
+      fontSize: { xs: "1.2rem", sm: "1.25rem", md: "1.6rem" },
+      "&:hover": {
+        color: "rgba(255, 255, 255, 0.9)",
+        textShadow: "1px 1px 8px rgba(255,255,255,0.5)",
+      },
+      transition: "all 0.3s ease",
+    }}
+  >
+    Royal Rolling Shutter
+  </Typography>
+</Box>
+
 
           {/* Desktop menu and CTA */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>

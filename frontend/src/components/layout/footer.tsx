@@ -45,7 +45,7 @@ const Footer = () => {
               <Link href="#" sx={{ color: "grey.400", "&:hover": { color: "white" } }}>
                 <FacebookIcon />
               </Link>
-              <Link href="#" sx={{ color: "grey.400", "&:hover": { color: "white" } }}>
+              <Link href="https://www.instagram.com/roya.lrollingshutter1/" sx={{ color: "grey.400", "&:hover": { color: "white" } }}>
                 <InstagramIcon />
               </Link>
               <Link href="#" sx={{ color: "grey.400", "&:hover": { color: "white" } }}>
@@ -87,11 +87,11 @@ const Footer = () => {
             </Typography>
             <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
               {[
-                "Aluminum Shutters",
-                "Steel Shutters",
-                "Security Grilles",
-                "Fire Shutters",
-                "Insulated Shutters",
+                "Shutters",
+                "Doors",
+                "Railing",
+                "Shed",
+                "Stair",
               ].map((product) => (
                 <Box component="li" key={product} sx={{ mb: 1 }}>
                   <Link

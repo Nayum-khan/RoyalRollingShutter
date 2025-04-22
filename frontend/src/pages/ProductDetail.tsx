@@ -233,30 +233,75 @@ const ProductDetailPage = () => {
               <Divider sx={{ my: 2 }} />
 
               {/* Premium formatted description */}
-<Box sx={{ mb: 3, color: 'text.secondary', lineHeight: 1.8 }}>
-  {product.description.split('\n').map((line, index) => {
-    if (line.startsWith('Key Features:')) {
-      return (
-        <Typography key={index} variant="h6" sx={{ mt: 2, fontWeight: 700 }}>
-          {line}
-        </Typography>
-      );
-    } else if (line.startsWith(' •')) {
-      return (
-        <Typography key={index} component="li" sx={{ ml: 3, listStyle: 'disc' }}>
-          {line.replace(' •', '')}
-        </Typography>
-      );
-    } else if (line.trim() === '') {
-      return <Box key={index} sx={{ height: 16 }} />;
-    } else {
-      return (
-        <Typography key={index} variant="body1" paragraph>
-          {line}
-        </Typography>
+              <Box sx={{ mb: 3, color: 'text.secondary' }}>
+  {(() => {
+    const lines = product.description.split('\n');
+    const output: React.ReactNode[] = [];
+    let listItems: React.ReactNode[] = [];
+
+    lines.forEach((line, index) => {
+      if (line.startsWith('Key Features:')) {
+        // Push previous list
+        if (listItems.length) {
+          output.push(
+            <Box
+              component="ul"
+              key={`ul-${index}`}
+              sx={{ pl: 3, my: 1, '& li': { mb: 0.5 } }}
+            >
+              {listItems}
+            </Box>
+          );
+          listItems = [];
+        }
+
+        output.push(
+          <Typography key={index} variant="h6" sx={{ mt: 2, fontWeight: 700 }}>
+            {line}
+          </Typography>
+        );
+      } else if (line.trim().startsWith('•')) {
+        listItems.push(<li key={index}>{line.trim().substring(1).trim()}</li>);
+      } else if (line.trim() === '') {
+        // ignore empty lines
+      } else {
+        // Push list before rendering a new paragraph
+        if (listItems.length) {
+          output.push(
+            <Box
+              component="ul"
+              key={`ul-${index}`}
+              sx={{ pl: 3, my: 1, '& li': { mb: 0.5 } }}
+            >
+              {listItems}
+            </Box>
+          );
+          listItems = [];
+        }
+
+        output.push(
+          <Typography key={index} variant="body1" paragraph>
+            {line}
+          </Typography>
+        );
+      }
+    });
+
+    // Render any remaining list items
+    if (listItems.length) {
+      output.push(
+        <Box
+          component="ul"
+          key="ul-last"
+          sx={{ pl: 3, my: 1, '& li': { mb: 0.5 } }}
+        >
+          {listItems}
+        </Box>
       );
     }
-  })}
+
+    return output;
+  })()}
 </Box>
 
 

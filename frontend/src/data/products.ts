@@ -15,7 +15,7 @@ export const products = [
 
 Key Features:
 
-•Made from galvanized steel – rust-resistant and weatherproof
+•Made from galvanized steel – rust-resistant and weatherproof.
 •Zinc-coated surface – prevents corrosion and increases life span
 •Available in plain, perforated, or grill styles
 •Can be powder-coated for better finish and extra protection
@@ -95,8 +95,8 @@ Key Features:
 •Aesthetic design options for a modern or traditional look that complements the rooftop.`,
       images: [
         "/images/TerraceShed1.jpg",
-        "/images/TerraceShed1.webp",
-        "/images/TerraceShed1.jpg"
+        "/images/TerraceShed2.webp",
+        "/images/TerraceShed3.jpg"
       ],
       category: "Shed",
       price: "$1,499",
@@ -182,7 +182,7 @@ Key Features:
 •Compatible with automation, remote control, and sensor systems.`,
       images: [
         "/images/SteelCommercial1.jpg",
-        "/images/SteelCommercial1.png",
+        "/images/SteelCommercial2.png",
         "/images/SteelCommercial3.jpg"
       ],
       category: "Shutter",
@@ -302,7 +302,7 @@ Key Features:
 •Silent operation – minimal noise during movement.
 •Customizable sizes and finishes – suitable for all property types.`,
       images: [
-        "/images/Motorized2.webp",
+        "/images/Motorized2.jpg",
         "/images/Motorized1.jpg",
         "/images/Motorized2.webp"
       ],
@@ -795,8 +795,8 @@ Key Features:
 •Eco-friendly options available such as tensile fabric for the roofing material`,
       images: [
         "/images/OpenShed1.jpg",
-        "/images/OpenShed1.jpg",
-        "/images/OpenShed1.webp"
+        "/images/OpenShed2.jpg",
+        "/images/OpenShed3.webp"
       ],
       category: "Shed",
       price: "$1,499",

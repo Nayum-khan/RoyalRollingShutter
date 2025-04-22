@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+body, html, #root, .App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,6 +19,8 @@
 }
 
 .App-header {
+  width: 100%;
+  overflow-x: hidden; /* Ensures no horizontal scroll */
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,6 +29,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {

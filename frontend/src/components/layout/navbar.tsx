@@ -96,7 +96,7 @@ const Navbar = () => {
     display: "flex",
     alignItems: "center",
     textDecoration: "none",
-    gap: 1.2,
+    gap: 1,
   }}
 >
 <Box
@@ -123,7 +123,7 @@ const Navbar = () => {
       textTransform: "uppercase",
       letterSpacing: 2,
       textShadow: "5px 1px 4px rgba(0,0,0,0.3)",
-      fontSize: { xs: "1.2rem", sm: "1.25rem", md: "1.6rem" },
+      fontSize: { xs: "1.0rem", sm: "1.25rem", md: "1.6rem" },
       "&:hover": {
         color: "rgba(255, 255, 255, 0.9)",
         textShadow: "1px 1px 8px rgba(255,255,255,0.5)",

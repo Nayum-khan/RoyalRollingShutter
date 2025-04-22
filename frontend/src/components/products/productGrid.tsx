@@ -25,11 +25,11 @@ import ProductSidebar from "./productSidebar"
 const categories = [
   "All",
   "Shutter",
-  "Aluminium-Section",
   "Doors",
   "Railing",
   "Shed",
   "Stair",
+  "Table"
 ]
 
 const ProductGrid = () => {

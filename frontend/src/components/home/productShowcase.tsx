@@ -16,7 +16,7 @@ import "swiper/css";
 
 const ProductShowcase = () => {
   const navigate = useNavigate();
-  const featuredProducts = products.slice(0, 10);
+  const featuredProducts = products.slice(0, 15);
 
   return (
     <Box

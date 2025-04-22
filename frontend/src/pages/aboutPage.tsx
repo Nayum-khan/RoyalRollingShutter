@@ -1,19 +1,29 @@
-import { Box, Container, Typography, Paper, Button, Stack } from "@mui/material"
+import { Box, Container, Typography, Paper, Button, Stack, Avatar } from "@mui/material"
 import PageHeader from "../components/ui/pageHeader"
+import { Link as RouterLink } from "react-router-dom";
 
 const AboutPage = () => {
-  const values = [
+  const teamMembers = [
     {
-      title: "Quality",
-      description: "We never compromise on the quality of our products and services.",
+      name: "Juber Pathan",
+      role: "Founder",
+      experience: "15+ years",
+      contact: "+91 8505091532", // Added contact number
+      image: "./images/juber.jpeg",
     },
     {
-      title: "Innovation",
-      description: "We continuously strive to improve and innovate our product offerings.",
+      name: "Sarfraz Pathan",
+      role: "Manager",
+      experience: "10+ years",
+      contact: "+91 8107034936", // Added contact number
+      image: "./images/sarfraz.jpeg",
     },
     {
-      title: "Customer Satisfaction",
-      description: "Your satisfaction is our top priority, and we go the extra mile to ensure it.",
+      name: "Abbas Pathan",
+      role: "Partner",
+      experience: "5+ years",
+      contact: "+91 9079190133", // Added contact number
+      image: "./images/abbas.jpeg",
     },
   ]
 
@@ -51,8 +61,13 @@ const AboutPage = () => {
               With a team of experienced professionals and state-of-the-art manufacturing facilities, we ensure that
               every product that leaves our factory meets the highest standards of quality and durability.
             </Typography>
-            <Button variant="contained" sx={{ mt: 2 }}>
-              Meet Our Team
+            <Button 
+              variant="contained" 
+              sx={{ mt: 2 }}
+              component={RouterLink}
+              to="/contact"
+            >
+              Contact Our Team
             </Button>
           </Box>
 
@@ -71,36 +86,77 @@ const AboutPage = () => {
           </Box>
         </Box>
 
-        {/* Section: Our Values */}
+        {/* Section: Our Team */}
         <Box sx={{ mt: 8 }}>
-          <Typography variant="h4" align="center" gutterBottom>
-            Our Values
+          <Typography variant="h3" align="center" gutterBottom>
+            Our Team
+          </Typography>
+          <Typography variant="h6" align="center" color="rgb(77, 10, 10)" sx={{ mb: 4 }}>
+            Meet the experts behind Royal Rolling Shutter
           </Typography>
 
           <Stack
             direction={{ xs: "column", md: "row" }}
-            spacing={4}
+            spacing={{ xs: 2, md: 4 }}
             sx={{ mt: 2 }}
           >
-            {values.map((value, index) => (
+            {teamMembers.map((member, index) => (
               <Paper
                 key={index}
                 elevation={1}
                 sx={{
-                  p: 4,
+                  p: { xs: 1.5, md: 4 },
                   flex: 1,
+                  minWidth: { xs: 'auto', md: 300 },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
                   transition: "all 0.3s",
                   "&:hover": {
-                    transform: "translateY(-5px)",
-                    boxShadow: 3,
+                    transform: { md: "translateY(-5px)" },
+                    boxShadow: { md: 3 },
                   },
                 }}
               >
-                <Typography variant="h5" gutterBottom>
-                  {value.title}
+                <Avatar
+                  src={member.image}
+                  alt={member.name}
+                  sx={{
+                    width: 220,
+                    height: 220,
+                    mb: { xs: 1.5, md: 3 },
+                    border: '3px solid',
+                    borderColor: 'primary.main',
+                    '@media (max-width: 400px)': {
+                      width: 180,
+                      height: 180,
+                    }
+                  }}
+                />
+                <Typography variant="h5" gutterBottom sx={{ fontSize: { xs: '1.1rem', md: '1.5rem' } }}>
+                  {member.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  {value.description}
+                <Typography variant="subtitle1" color="primary" gutterBottom sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }}>
+                  {member.role}
+                </Typography>
+                <Typography variant="body1" color="text.secondary" sx={{ fontSize: { xs: '0.8rem', md: '1rem' } }}>
+                  {member.experience}
+                </Typography>
+                {/* Added contact number with click-to-call link */}
+                <Typography variant="body1" sx={{ mt: 1, color: 'primary.main' }}>
+                  <a 
+                    href={`tel:${member.contact.replace(/\s+/g, '')}`} 
+                    style={{ 
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem'
+                    }}
+                  >
+                    {member.contact}
+                  </a>
                 </Typography>
               </Paper>
             ))}

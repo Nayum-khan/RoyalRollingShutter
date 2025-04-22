@@ -219,74 +219,78 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-                "& .MuiPaper-root": {
-                  width: "100%",
-                  maxWidth: "none",
-                  minWidth: 200,
-                  background: `linear-gradient(-45deg, #1976d2, #2196f3, #0d47a1, #1565c0)`,
-                  backgroundSize: "400% 400%",
-                  animation: "gradientAnimation 15s ease infinite",
-                },
-              }}
-              MenuListProps={{
-                sx: {
-                  py: 0,
-                },
-              }}
-            >
-              {navLinks.map((link) => (
-                <MenuItem
-                  key={link.name}
-                  onClick={handleCloseNavMenu}
-                  component={RouterLink}
-                  to={link.href}
-                  sx={{
-                    py: 1.5,
-                    color: "white",
-                    "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography textAlign="center" fontWeight={500}>
-                    {link.name}
-                  </Typography>
-                </MenuItem>
-              ))}
-              <Divider sx={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }} />
-              <MenuItem
-                onClick={handleCloseNavMenu}
-                component={RouterLink}
-                to="/contact"
-                sx={{
-                  backgroundColor: "white",
-                  color: "#1976d2",
-                  py: 1.5,
-                  "&:hover": {
-                    backgroundColor: "rgba(255, 255, 255, 0.9)",
-                  },
-                }}
-              >
-                <Typography textAlign="center" fontWeight="bold">
-                  Get a Quote
-                </Typography>
-              </MenuItem>
-            </Menu>
+  id="menu-appbar"
+  anchorEl={anchorElNav}
+  anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "right",
+  }}
+  keepMounted
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  open={Boolean(anchorElNav)}
+  onClose={handleCloseNavMenu}
+  sx={{
+    display: { xs: "block", md: "none" },
+    "& .MuiPaper-root": {
+      width: "100%",
+      maxWidth: "none",
+      minWidth: 200,
+      backgroundColor: "#f5f5f5", // Light gray background instead of gradient
+      boxShadow: "0px 8px 16px rgba(0,0,0,0.2)",
+    },
+  }}
+  MenuListProps={{
+    sx: {
+      py: 0,
+    },
+  }}
+>
+  {navLinks.map((link) => {
+    const isActive = location.pathname === link.href;
+    return (
+      <MenuItem
+        key={link.name}
+        onClick={handleCloseNavMenu}
+        component={RouterLink}
+        to={link.href}
+        sx={{
+          py: 1.5,
+          color: isActive ? "#1976d2" : "#333",
+          fontWeight: isActive ? "bold" : "normal",
+          backgroundColor: isActive ? "rgba(25, 118, 210, 0.1)" : "transparent",
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.04)",
+          },
+        }}
+      >
+        <Typography textAlign="center">
+          {link.name}
+        </Typography>
+      </MenuItem>
+    );
+  })}
+  <Divider sx={{ backgroundColor: "rgba(0, 0, 0, 0.12)" }} />
+  <MenuItem
+    onClick={handleCloseNavMenu}
+    component={RouterLink}
+    to="/contact"
+    sx={{
+      py: 1.5,
+      backgroundColor: "#1976d2",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#1565c0",
+      },
+    }}
+  >
+    <Typography textAlign="center" fontWeight="bold">
+      Get a Quote
+    </Typography>
+  </MenuItem>
+</Menu>
           </Box>
         </Toolbar>
       </Container>

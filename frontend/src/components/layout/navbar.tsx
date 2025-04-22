@@ -25,14 +25,21 @@ const gradientAnimation = `
   0% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 50% 50%;
+  }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
   }
   100% {
     background-position: 0% 50%;
   }
 }
 `
+
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -71,11 +78,12 @@ const Navbar = () => {
       elevation={3}
       sx={{
         py: 1,
-        background: `linear-gradient(-45deg, #1976d2, #2196f3, #0d47a1, #1565c0)`,
-        backgroundSize: "400% 400%",
-        animation: "gradientAnimation 5s ease infinite",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+        background: `linear-gradient(-45deg, #6c5ce7, #00cec9, #0984e3,hsl(206, 96.60%, 34.90%))`,
+        backgroundSize: "300% 300%",
+        animation: "gradientAnimation 8s ease infinite",
+        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.2)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        backdropFilter: "blur(6px)",
       }}
     >
       <Container maxWidth="lg">

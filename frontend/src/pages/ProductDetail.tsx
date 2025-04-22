@@ -232,13 +232,33 @@ const ProductDetailPage = () => {
 
               <Divider sx={{ my: 2 }} />
 
-              <Typography variant="body1" paragraph sx={{ 
-                mb: 3,
-                lineHeight: 1.8,
-                color: 'text.secondary'
-              }}>
-                {product.description}
-              </Typography>
+              {/* Premium formatted description */}
+<Box sx={{ mb: 3, color: 'text.secondary', lineHeight: 1.8 }}>
+  {product.description.split('\n').map((line, index) => {
+    if (line.startsWith('Key Features:')) {
+      return (
+        <Typography key={index} variant="h6" sx={{ mt: 2, fontWeight: 700 }}>
+          {line}
+        </Typography>
+      );
+    } else if (line.startsWith(' •')) {
+      return (
+        <Typography key={index} component="li" sx={{ ml: 3, listStyle: 'disc' }}>
+          {line.replace(' •', '')}
+        </Typography>
+      );
+    } else if (line.trim() === '') {
+      return <Box key={index} sx={{ height: 16 }} />;
+    } else {
+      return (
+        <Typography key={index} variant="body1" paragraph>
+          {line}
+        </Typography>
+      );
+    }
+  })}
+</Box>
+
 
               <Box sx={{ mt: 'auto', pt: 2 }}>
                 <Button

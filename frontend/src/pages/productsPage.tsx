@@ -9,7 +9,7 @@ const ProductsPage = () => {
       <Container maxWidth="lg"
         sx={{
           pl: { xs: 0, sm: 0 }, // Remove left padding
-          pr: { xs: 2, sm: 4 }, // Keep right padding
+          pr: { xs: 0, sm: 0 }, // Keep right padding
         }}
         disableGutters // Disable default gutters
       >
